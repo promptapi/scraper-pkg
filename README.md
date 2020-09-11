@@ -1,6 +1,7 @@
 ![Node](https://img.shields.io/badge/node-14.9.0-green.svg)
 [![npm version](https://badge.fury.io/js/%40promptapi%2Fscraper-pkg.svg)](https://badge.fury.io/js/%40promptapi%2Fscraper-pkg)
 
+
 # Prompt API - Scraper - Node Package
 
 `@promptapi/scraper-pkg` is a simple JavaScript wrapper for [scraper-api][scraper-api].

@@ -11,11 +11,11 @@
     "url": "git+https://github.com/promptapi/scraper-pkg.git"
   },
   "keywords": [
-      "promptapi",
-      "api-wrapper",
-      "scraper",
-      "data-extract",
-      "api-marketplace"
+    "promptapi",
+    "api-wrapper",
+    "scraper",
+    "data-extract",
+    "api-marketplace"
   ],
   "author": "Prompt API <hello@promptapi.com> (https://promptapi.com/marketplace/docs/bincheck-api)",
   "license": "MIT",
@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/promptapi/scraper-pkg#readme",
   "publishConfig": {
-      "access": "public"
-    },
+    "access": "public"
+  },
   "dependencies": {
     "axios": "^0.20.0"
   }
