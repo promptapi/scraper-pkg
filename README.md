@@ -3,7 +3,7 @@
 
 # Prompt API - Scraper - Node Package
 
-`@promptapi/scraper-pkg` is a simple JavaScript wrapper for [bincheck-api][bincheck-api].
+`@promptapi/scraper-pkg` is a simple JavaScript wrapper for [scraper-api][scraper-api].
 
 ## Requirements
 
