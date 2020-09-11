@@ -1,0 +1,32 @@
+{
+  "name": "@promptapi/scraper-pkg",
+  "version": "0.0.0",
+  "description": "",
+  "main": "scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/promptapi/scraper-pkg.git"
+  },
+  "keywords": [
+      "promptapi",
+      "api-wrapper",
+      "scraper",
+      "data-extract",
+      "api-marketplace"
+  ],
+  "author": "Prompt API <hello@promptapi.com> (https://promptapi.com/marketplace/docs/bincheck-api)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/promptapi/scraper-pkg/issues"
+  },
+  "homepage": "https://github.com/promptapi/scraper-pkg#readme",
+  "publishConfig": {
+      "access": "public"
+    },
+  "dependencies": {
+    "axios": "^0.20.0"
+  }
+}
