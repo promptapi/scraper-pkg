@@ -20,7 +20,7 @@ $ npm install @promptapi/scraper-pkg
 or, install from GitHub registry;
 
 ```bash
-$ npm install @promptapi/scraper-pkg@0.1.4
+$ npm install @promptapi/scraper-pkg@0.1.5
 ```
 
 ---
