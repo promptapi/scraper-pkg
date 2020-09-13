@@ -27,7 +27,101 @@ $ npm install @promptapi/scraper-pkg@0.1.4
 
 ## Example Usage
 
-@wip
+Basic scrape feature:
+
+```javascript
+const promptapi = require('@promptapi/scraper-pkg')
+params = {}
+promptapi.scraper('https://pypi.org/classifiers/', params).then(result => {
+  if(result.error){
+    console.log(result.error)
+  } else {
+    console.log(result.data); // your scraped data...
+    console.log(result.headers);
+    console.log(result.url);
+
+    promptapi.save('/tmp/data.html', result.data) // save result
+  }
+})
+```
+
+Output:
+
+    // result.data
+    <!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <meta name="defaultLanguage" content="en">
+        <meta name="availableLanguages" content="en, es, fr, ja, pt_BR, uk, el, de, zh_Hans, ru, he">
+    :
+    :
+    :
+    
+    // result.headers
+    { 'Content-Length': '322126', ...
+    
+    // result.url
+    https://pypi.org/classifiers/
+    
+    /tmp/data.html saved successfully, written 322126 bytes
+
+You can add url parameters for extra operations. Valid parameters are:
+
+- `auth_password`: for HTTP Realm auth password
+- `auth_username`: for HTTP Realm auth username
+- `cookie`: URL Encoded cookie header.
+- `country`: 2 character country code. If you wish to scrape from an IP address of a specific country.
+- `referer`: HTTP referer header
+- `selector`: CSS style selector path such as `a.btn div li`. If `selector` is
+  enabled, returning result will be collection of data and saved file will be
+  in `.json` format.
+
+```javascript
+const promptapi = require('@promptapi/scraper-pkg')
+
+params = {country: 'EE', selector: 'ul li button[data-clipboard-text]'}
+
+promptapi.scraper('https://pypi.org/classifiers/', params).then(result => {
+  if(result.error){
+    console.log(result.error)
+  } else {
+    console.log(result.data); // your scraped data...
+    console.log(result.headers);
+    console.log(result.url);
+
+    promptapi.save('/tmp/data.json', result.data)
+  }
+})
+```
+
+Output :
+
+    // result.data
+    [ '<button class="button button--small margin-top margin-bottom copy-tooltip copy-tooltip-w" data-clipboard-text="Development Status :: 1 - Planning" data-tooltip-label="Copy to clipboard" type="button">\n Copy\n</button>\n',
+      '<button class="button button--small margin-top margin-bottom copy-tooltip copy-tooltip-w" data-clipboard-text="Development Status :: 2 - Pre-Alpha" data-tooltip-label="Copy to clipboard" type="button">\n Copy\n</button>\n',
+      '<button class="button button--small margin-top margin-bottom copy-tooltip copy-tooltip-w" data-clipboard-text="Development Status :: 3 - Alpha" data-tooltip-label="Copy to clipboard" type="button">\n Copy\n</button>\n',
+    :
+    :
+    :
+    
+    // result.headers
+    { 'Content-Length': '322126', ...
+    
+    // result.url
+    https://pypi.org/classifiers/
+    
+    /tmp/data.json saved successfully, written 174182 bytes
+
+If you have `jq` tool;
+
+```bash
+$ cat /tmp/data.json | jq 'length'
+736
+```
 
 ---
 
