@@ -123,6 +123,27 @@ $ cat /tmp/data.json | jq 'length'
 736
 ```
 
+You can also add extra `X-` headers to your request. Read more about http
+headers at [Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)’s website.
+
+```javascript
+const promptapi = require('@promptapi/scraper-pkg')
+params = {}
+headers = {'X-Referer': 'https://www.google.com'}
+promptapi.scraper('https://pypi.org/classifiers/', params, headers=headers).then(result => {
+  if(result.error){
+    console.log(result.error)
+  } else {
+    console.log(result.data); // your scraped data...
+    console.log(result.headers);
+    console.log(result.url);
+
+    promptapi.save('/tmp/data.html', result.data) // save result
+  }
+})
+
+```
+
 ---
 
 ## Development

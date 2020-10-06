@@ -11,7 +11,7 @@ const validParams = [
     'selector',
 ]
 
-function scraper(url, params, timeout=5000){
+function scraper(url, params, headers={}, timeout=5000){
   try {
     let vURL = new URL(url)
   } catch(e) {
@@ -31,14 +31,19 @@ function scraper(url, params, timeout=5000){
   })
 
   let promptAPIEndPoint = 'https://api.promptapi.com/scraper'
-
+  
+  let defaultHeaders = {
+    'apikey': apiKey
+  }
+  if(Object.keys(headers).length > 0 && headers.constructor === Object){
+    Object.assign(defaultHeaders, headers)
+  }
+  
   let config = {
     method: 'get',
     url: promptAPIEndPoint,
     params: needParams,
-    headers: {
-      'apikey': apiKey,
-    },
+    headers: defaultHeaders,
     timeout: timeout,
   };
   return axios(config).then(response => {
